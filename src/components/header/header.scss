@@ -1,0 +1,143 @@
+.header__section {
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    min-height: 100vh;
+    .navigation__toggle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        @include flex;
+        border: 1px solid #333;
+
+        .bar {
+            position: relative;
+            display: inline-block;
+            width: 1.5rem;
+            height: 2px;  
+            background-color: $color-primary;
+            animation-name: visibility-show;
+            animation-duration: 0.5s;
+            animation-delay: 0.3s;
+            animation-fill-mode: backwards;
+        }
+        .bar::before, .bar::after {
+            content: "";
+            width: 1.5rem;
+            height: 2px;
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            background-color: $color-primary;
+        }
+        .bar::before {
+            animation-name: rotate-right-reverse;
+            animation-duration: 0.5s;
+            top: -10px;
+        }
+        .bar::after {
+            animation-name: rotate-left-reverse;
+            animation-duration: 0.5s;
+            top: 10px;
+        }
+
+        .bar__active {
+            position: relative;
+            display: inline-block;
+            width: 1.5rem;
+            height: 2px;  
+            background-color: transparent;
+            
+
+            &::before, &::after {
+                content: "";
+                width: 1.5rem;
+                height: 2px;
+                display: inline-block;
+                position: absolute;
+                left: 0;
+                background-color: $color-primary;
+                transition: all ease-out;
+            }
+            &::before {
+                animation-name: rotate-right;
+                animation-duration: 1s;
+                transform: rotate(-135deg);
+            }
+            &::after {
+                animation-name: rotate-left;
+                animation-duration: 1s;
+                transform: rotate(135deg);
+            }
+        }
+        
+    }
+    // NAVIGATION BACKGROUND 
+    .navbar__background {
+        background-image: linear-gradient(to right bottom, #bde0fe, #a2d2ff, #8ecae6);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        transition: all 0.7s ease-out;
+    }
+    .scale {
+        transform: scale(80);
+        overflow: hidden;
+    }
+}
+
+
+
+
+@keyframes rotate-right {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-135deg);
+    }
+}
+
+@keyframes rotate-left {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(135deg);
+    }
+}
+
+
+@keyframes rotate-right-reverse {
+    0% {
+        transform: rotate(-135deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes rotate-left-reverse {
+    0% {
+        transform: rotate(135deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes visibility-show {
+    0% {
+        background-color: transparent;
+    }
+    100% {
+        background-color: $color-primary;
+    }
+}
