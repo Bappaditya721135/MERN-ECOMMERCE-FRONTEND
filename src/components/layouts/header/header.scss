@@ -4,15 +4,16 @@
     width: 100vw;
     min-height: 100vh;
     .navigation__toggle {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        z-index: 4;
         width: 3rem;
         height: 3rem;
         border-radius: 50%;
         @include flex;
         border: 1px solid #333;
+
 
         .bar {
             position: relative;
@@ -79,17 +80,16 @@
     // NAVIGATION BACKGROUND 
     .navbar__background {
         background-image: linear-gradient(to right bottom, #bde0fe, #a2d2ff, #8ecae6);
-        position: absolute;
-        top: 0;
-        left: 0;
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
         width: 3rem;
         height: 3rem;
         border-radius: 50%;
-        transition: all 0.7s ease-out;
+        transition: all 0.5s ease-out;
     }
     .scale {
         transform: scale(80);
-        overflow: hidden;
     }
 }
 

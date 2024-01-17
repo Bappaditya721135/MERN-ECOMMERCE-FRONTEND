@@ -3,3 +3,13 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+
+html {
+    font-size: 100%;
+
+    @include media(900px) {
+        font-size: 80%;
+    }
+
+}

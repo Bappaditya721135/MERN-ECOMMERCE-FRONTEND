@@ -3,11 +3,14 @@
     height: 100vh;
     font-family: "roboto", sans-serif;
     font-size: 1.3rem;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
     padding: 2rem;
     @include flex;
     // flex-direction: column;
     gap: 4rem;
+    z-index: 3;
 
     .nav__heading {
         animation-name: slide-down;
@@ -29,16 +32,29 @@
                 animation-duration: 1.1s;
             }
             &:nth-child(3) {
+                white-space: nowrap;
                 animation-duration: 1.2s;
             }
             &:nth-child(4) {
                 animation-duration: 1.3s;
             }
         }
+        li {
+            a {
+                text-decoration: none;
+                color: $color-primary;
+            }
+        }
         
     }
 
     .nav__links--icons {
+        a {
+            color: $color-primary;
+            &:hover {
+                color: $color-white;
+            }
+        }
         svg {
             margin: 1rem;
             animation-name: slide-down;
@@ -64,5 +80,32 @@
     }
     100% {
         transform: translateY(0rem);
+    }
+}
+
+
+
+// MEDIA 
+@include media(720px) {
+    .nav__heading {
+        display: none;
+    }
+}
+
+@include media(560px) {
+    .navbar {
+        flex-direction: column;
+    }
+    .nav__heading {
+        display: block;
+    }
+}
+
+@include media(480px) {
+    .navbar {
+        font-size: 1.5rem;
+    }
+    .nav__links {
+        flex-direction: column;
     }
 }

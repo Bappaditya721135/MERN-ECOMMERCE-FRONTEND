@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 // REACT ICONS  
 import { MdOutlineSearch } from "react-icons/md";
 import { FaCartShopping } from "react-icons/fa6";
@@ -11,15 +12,23 @@ export default function Navbar() {
     <nav className="navbar">
       <h3 className="nav__heading">Ecommerce</h3>
       <ul className="nav__links">
-        <li>Home</li>
-        <li>Product</li>
-        <li>Contact us</li>
-        <li>about</li>
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="#">Product</a>
+        </li>
+        <li>
+          <a href="#">Contact us</a>
+        </li>
+        <li>
+          <a href="#">About</a>
+        </li>
       </ul>
       <ul className="nav__links--icons">
-          <MdOutlineSearch />
-          <FaCartShopping />
-          <IoIosContact />
+          <a href="#"><MdOutlineSearch /></a>
+          <a href="#"><FaCartShopping /></a>
+          <a href="#"><IoIosContact /></a>
       </ul>
     </nav>
   )

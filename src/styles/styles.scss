@@ -1,13 +1,15 @@
+@import "./abstract/mixins.scss";
 // BASE 
 @import "./base/reset.scss";
 @import "./base/font.scss";
 
 // ABSTRACT 
-@import "./abstract/mixins.scss";
 @import "./abstract/colors.scss";
 
 
 
 // COMPONENTS  
-@import "../components/header/header.scss";
-@import "../components/Navbar/navbar.scss";
+@import "../app.scss";
+@import "../components/layouts/header/header.scss";
+@import "../components/layouts/Navbar/navbar.scss";
+@import "../components/layouts/footer/footer.scss";
