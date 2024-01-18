@@ -3,3 +3,18 @@
     justify-content: $justify;
     align-items: $align;
 }
+
+
+
+@mixin media($screen) {
+    @if $screen == 1800px {
+        @media(min-width: 1800px) {
+            @content;
+        }
+    }
+    @else {
+        @media(max-width: $screen) {
+            @content;
+        }
+    }
+}
