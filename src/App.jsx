@@ -1,17 +1,19 @@
 
 import React from 'react';
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 // COMPONENTS  
-import Header from "./components/layouts/header/Header";
-import Footer from './components/layouts/footer/Footer';
+import Home from './components/home/Home';
 
 // SCSS 
 import "../src/styles/styles.scss";
 
+// CREATING A ROUTER 
+const router = createBrowserRouter(createRoutesFromElements(
+  <Route path="/" element={<Home />} />
+))
+
 export default function App() {
   return (
-    <div className="app">
-      <Header />
-      <Footer />
-    </div>
+        <RouterProvider router={router} />
   )
 }
