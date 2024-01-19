@@ -1,3 +1,6 @@
+.app {
+    overflow-x: hidden;
+}
 .banner {
     height: 100vh;
     background-color: #4170e1;
@@ -21,6 +24,7 @@
     h1 {
         font: 600 2.5rem "Roboto";
         margin: 4rem;
+        text-align: center;
     }
     p {
         font: 400 1.5rem "Roboto";
@@ -51,4 +55,29 @@
 
     
 
+}
+
+
+// MEDIA 
+
+@include media(720px) {
+    .banner {
+        height: 90vh;
+        &::after {
+            height: 91vh;
+            clip-path: polygon(-4% 100%, 100% 70%, 100% 100%, 0% 100%);
+        }
+    }
+}
+@include media(480px) {
+    .banner {
+        height: 80vh;
+        &::after {
+            height: 81vh;
+            clip-path: polygon(-4% 100%, 100% 70%, 100% 100%, 0% 100%);
+        }
+        h1 {
+            font: 500 2rem "Roboto";
+        }
+    }
 }
