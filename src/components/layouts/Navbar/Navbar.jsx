@@ -13,22 +13,22 @@ export default function Navbar() {
       <h3 className="nav__heading">Ecommerce</h3>
       <ul className="nav__links">
         <li>
-          <a href="#">Home</a>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <a href="#">Products</a>
+          <Link to="/products">Products</Link>
         </li>
         <li>
-          <a href="#">Contact us</a>
+          <Link to="/contact-us">Contact Us</Link>
         </li>
         <li>
-          <a href="#">About</a>
+          <Link to="/about">About Us</Link>
         </li>
       </ul>
       <ul className="nav__links--icons">
-          <a href="#"><MdOutlineSearch /></a>
-          <a href="#"><FaCartShopping /></a>
-          <a href="#"><IoIosContact /></a>
+          <Link to="/search"><MdOutlineSearch /></Link>
+          <Link to="/cart"><FaCartShopping /></Link>
+          <Link to="/profile"><IoIosContact /></Link>
       </ul>
     </nav>
   )
