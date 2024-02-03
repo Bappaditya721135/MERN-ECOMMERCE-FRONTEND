@@ -20,7 +20,7 @@ export default function Product({products}) {
         <div className="product__container">
             {products.map((product, i) => {
             return <Link to={product._id} key={i} className="product__card">
-                <img src={product.img} alt={product.name} />
+                <img src={product.images[0].url} alt={product.name} />
                 <h4 className="product__name">{product.name}</h4>
                 <div>
                     <ReactStars {...options} />
