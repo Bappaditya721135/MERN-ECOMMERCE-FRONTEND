@@ -24,7 +24,7 @@
             color: $color-primary;
             text-decoration: none;
             width: 19rem;
-            min-height: 25rem;
+            height: 30rem;
             @include flex;
             flex-direction: column;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
