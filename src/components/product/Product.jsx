@@ -20,13 +20,15 @@ export default function Product({products}) {
         <div className="product__container">
             {products.map((product, i) => {
             return <Link to={product._id} key={i} className="product__card">
-                <img src={product.images[0].url} alt={product.name} />
+                <div className="product__img--container">
+                    <img src={product.images[0].url} alt={product.name} />
+                </div>
                 <h4 className="product__name">{product.name}</h4>
                 <div>
                     <ReactStars {...options} />
                     <span>(256 reviews)</span>
                 </div>
-                <p className="product__price">{product.price}</p>
+                <p className="product__price">₹{product.price}</p>
             </Link>
         })}
         </div>
