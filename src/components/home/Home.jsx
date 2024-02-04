@@ -38,7 +38,7 @@ export default function Home() {
                     </button>
                 </a>
             </div>
-            {state.products && <Product products={state.products} />}
+            {/* {state.products && <Product products={state.products} />} */}
             <Footer />
         </div>
     )
