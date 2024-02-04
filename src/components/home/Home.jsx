@@ -16,7 +16,6 @@ export default function Home() {
         dispatch(asyncProductAction())
     }, [])
 
-    console.log(state)
 
     if(state.loading) {
         return <h2>loading...</h2>
