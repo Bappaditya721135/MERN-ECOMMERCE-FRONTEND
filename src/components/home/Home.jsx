@@ -5,6 +5,7 @@ import Product from "../product/Product";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { asyncProductAction } from "../../redux/product/productAction";
+import { Outlet } from "react-router-dom";
 
 export default function Home() {
 
@@ -37,7 +38,8 @@ export default function Home() {
                     </button>
                 </a>
             </div>
-            {/* {state.products && <Product products={state.products} />} */}
+            {state.products && <Product products={state.products} />}
+            <Outlet />
             <Footer />
         </div>
     )

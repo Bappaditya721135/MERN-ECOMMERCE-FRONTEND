@@ -6,11 +6,12 @@ import Home from './components/home/Home';
 
 // SCSS 
 import "../src/styles/styles.scss";
+import CurrentProduct from './components/current-product/CurrentProduct';
 
 // CREATING A ROUTER 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Home />} >
-    <Route path="products" element={<h3>products</h3>} />
+    <Route path="product/:id" element={<CurrentProduct />} />
     <Route path="hi" element={<h2>this is view product</h2>} />
   </Route>
 ))
