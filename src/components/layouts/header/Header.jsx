@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Navbar from "../Navbar/Navbar.jsx";
+import { Outlet } from 'react-router-dom';
 
 export default function Header() {
   const [navbar, setNavbar] = useState(false);
@@ -10,10 +11,13 @@ export default function Header() {
   }
   
   return (
-    <header className="header__section">
-      <button className="navigation__toggle" onClick={handleToggleNavigation}><span className={navbar ? "bar__active": "bar"}></span></button>
-      <div className={navbar ? "navbar__background scale" : "navbar__background" }></div>
-      {navbar && <Navbar />}
-    </header>
+    <>
+      <header className="header__section">
+        <button className="navigation__toggle" onClick={handleToggleNavigation}><span className={navbar ? "bar__active": "bar"}></span></button>
+        <div className={navbar ? "navbar__background scale" : "navbar__background" }></div>
+        {navbar && <Navbar />}
+      </header>
+      <Outlet />
+    </>
   )
 }
