@@ -1,0 +1,26 @@
+.all__products--container {
+    padding: 3rem;
+
+    .title__section {
+        text-align: center;
+        .all__products-title {
+            font-family: "Roboto", sans-serif;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #5d5a5a;
+            padding: 5px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+            width: 50%;
+            display: inline-block;
+        }
+    }
+
+    .all__products {
+        width: 100%;
+        @include flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+}
