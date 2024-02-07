@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useLocation, useParams, useSearchParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { asyncCurrentProductFetch } from '../../redux/current-product/currentProductAction';
 import ReactStars from "react-rating-stars-component"
+
 
 const CurrentProduct = () => {
     // QUANTITY 

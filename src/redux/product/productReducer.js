@@ -3,7 +3,7 @@ import { PRODUCT_FETCH, PRODUCT_FETCH_ERROR, PRODUCT_FETCH_SUCCESS } from "./pro
 
 const initialState = {
     loading: false,
-    products: [],
+    products: null,
     error: null,
 }
 
