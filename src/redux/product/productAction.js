@@ -28,10 +28,10 @@ const productFetchError = (error) => {
 
 
 // ASYNC ACTION CREATOR 
-export const asyncProductAction = () => {
+export const asyncProductAction = (url="/api/v1/product") => {
     return (dispatch) => {
         dispatch(productFetch());
-        axios.get("/api/v1/product").then(res => {
+        axios.get(url).then(res => {
             dispatch(productFetchSuccess(res.data.products))
         }).catch(err => {
             dispatch(productFetchError(err))
