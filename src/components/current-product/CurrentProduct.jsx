@@ -3,6 +3,7 @@ import { Link, useLocation, useParams, useSearchParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { asyncCurrentProductFetch } from '../../redux/current-product/currentProductAction';
 import ReactStars from "react-rating-stars-component"
+import { FaArrowLeft } from "react-icons/fa";
 
 
 const CurrentProduct = () => {
@@ -13,9 +14,24 @@ const CurrentProduct = () => {
     const dispatch = useDispatch();
     const {id} = useParams();
 
+
+    // QUANTITY 
     const onChangeHandler = (e) => {
         setQuantity(e.target.value);
     }
+    const increaseQuantity = () => {
+        setQuantity(prev => {
+            return prev + 1;
+        })
+    }
+    const decreaseQuantity = () => {
+        if(quantity > 1) {
+            setQuantity(prev => {
+                return prev - 1;
+            })
+        }
+    }
+
 
 
 
@@ -42,13 +58,15 @@ const CurrentProduct = () => {
             isHalf: true,
             color: "rgba(20, 20, 20, 0.5)",
             activeColor: "tomato",
-            size: window.innerWidth < 600 ? 20 : 25,
+            size: window.innerWidth < 700 ? 15 : 25,
         }
 
         return (
             <div className="current__product--container">
                 <Link to="/" className="go-back__link">
-                    <button>Go back</button>
+                    <button className="btn__go-back">
+                        <FaArrowLeft /> 
+                    </button>
                 </Link>
                 <div className="current__product">
                     <div className="product__img--container">
@@ -63,9 +81,9 @@ const CurrentProduct = () => {
                         <p className="product__price">₹{price}</p>
                         <div className="product__addToCart-section">
                             <div className="quantity__section">
-                                <button>de</button>
+                                <button onClick={decreaseQuantity}>-</button>
                                 <input type="number" name="quantity" id="quantity" onChange={onChangeHandler} value={quantity} />
-                                <button>in</button>
+                                <button onClick={increaseQuantity}>+</button>
                             </div>
                             <button className="btn__addToCart">add to cart</button>
                         </div>
