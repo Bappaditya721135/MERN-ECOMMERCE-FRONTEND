@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import ProductCard from '../product/ProductCard';
+import { useLocation, useParams, useSearchParams } from 'react-router-dom';
+import { asyncProductAction } from '../../redux/product/productAction';
 
 const AllProducts = () => {
     const {loading, products, error}= useSelector(state => state.product);
     const dispatch = useDispatch();
-    console.log(loading)
-    console.log(products)
-    console.log(error);
+    const location = useLocation();
+
+
+    useEffect(() => {
+      if(location.search) {
+        const url = `/api/v1/product${location.search}`
+        dispatch(asyncProductAction(url))
+      }
+    }, [])
 
     if(loading) {
         return <h2>loading...</h2>

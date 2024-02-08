@@ -9,6 +9,7 @@ import "../src/styles/styles.scss";
 import CurrentProduct from './components/current-product/CurrentProduct';
 import Header from './components/layouts/header/Header';
 import AllProducts from './components/all-products/AllProducts';
+import Search from './components/search/Search';
 
 // CREATING A ROUTER 
 const router = createBrowserRouter(createRoutesFromElements(
@@ -17,6 +18,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path="product/:id" element={<CurrentProduct />} />
     <Route path="products" element={<AllProducts />} />
     <Route path="products/product/:id" element={<CurrentProduct />} />
+    <Route path="search" element={<Search />} />
   </Route>
 ))
 
