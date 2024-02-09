@@ -10,6 +10,8 @@ import CurrentProduct from './components/current-product/CurrentProduct';
 import Header from './components/layouts/header/Header';
 import AllProducts from './components/all-products/AllProducts';
 import Search from './components/search/Search';
+import UserLogin from './components/authentication/UserLogin';
+import UserRegistration from './components/authentication/UserRegistration';
 
 // CREATING A ROUTER 
 const router = createBrowserRouter(createRoutesFromElements(
@@ -19,6 +21,8 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path="products" element={<AllProducts />} />
     <Route path="products/product/:id" element={<CurrentProduct />} />
     <Route path="search" element={<Search />} />
+    <Route path="/login" element={<UserLogin />} />
+    <Route path="/register" element={<UserRegistration />} />
   </Route>
 ))
 
