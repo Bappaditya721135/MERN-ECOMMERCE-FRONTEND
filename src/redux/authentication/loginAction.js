@@ -1,0 +1,21 @@
+import axios from "axios";
+
+export const LOGIN_FETCH = "LOGIN_FETCH";
+export const LOGIN_FETCH_SUCCESS = "LOGIN_FETCH_SUCCESS";
+export const LOGIN_FETCH_ERROR = "LOGIN_FETCH_ERROR";
+
+
+export const asyncLogin = (user) => {
+    return (dispatch) => {
+        dispatch({type: LOGIN_FETCH})
+        axios.post("/api/v1/login", JSON.stringify(user), {
+            headers: {
+                "Content-Type": "application/json",
+            }
+        }).then(res => {
+            dispatch({type: LOGIN_FETCH_SUCCESS, payLoad: res.data.user})
+        }).catch(err => {
+            dispatch({type: LOGIN_FETCH_ERROR, payLoad: err})
+        })
+    }
+}
