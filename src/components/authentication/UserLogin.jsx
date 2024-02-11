@@ -1,11 +1,15 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { asyncLogin } from '../../redux/authentication/loginAction'
 
 const UserLogin = () => {
     const [user, setUser] = useState({
         email: "",
         password: "",
     })
+
+    const dispatch = useDispatch()
 
     const handleInputChange = (e) => {
         setUser(prev => {
@@ -18,13 +22,7 @@ const UserLogin = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("/api/v1/login", JSON.stringify(user), {headers: {
-            'content-type': 'Application/json'
-        }}).then(res => {
-            console.log(res.data);
-        }).catch(err => {
-            console.log(err)
-        })
+        dispatch(asyncLogin(user))
     }
   return (
     <div>

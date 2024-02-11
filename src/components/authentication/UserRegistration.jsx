@@ -1,5 +1,6 @@
-import axios from 'axios'
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { asyncRegister } from '../../redux/authentication/registerAction'
 
 const UserRegistration = () => {
     const [user, setUser] = useState({
@@ -11,6 +12,8 @@ const UserRegistration = () => {
             "url": "this is url"
         }
     })
+
+    const dispatch = useDispatch()
 
     const handleInputChange = (e) => {
         setUser(prev => {
@@ -24,15 +27,7 @@ const UserRegistration = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("/api/v1/register", JSON.stringify(user), {
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then(res => {
-            console.log(res.data)
-        }).catch(err => {
-            console.log(err);
-        })
+        dispatch(asyncRegister(user))
     }
   return (
     <div>

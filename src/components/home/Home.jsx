@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { asyncProductAction } from "../../redux/product/productAction";
 import { Outlet } from "react-router-dom";
+import { asyncLoadUser } from "../../redux/authentication/LoadUserAction";
 
 export default function Home() {
 
@@ -15,6 +16,7 @@ export default function Home() {
     // GET ALL THE PRODUCTS 
     useEffect(() => {
         dispatch(asyncProductAction())
+        dispatch(asyncLoadUser())
     }, [])
 
 
