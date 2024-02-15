@@ -16,7 +16,7 @@ export default function Home() {
     // GET ALL THE PRODUCTS 
     useEffect(() => {
         dispatch(asyncProductAction())
-        dispatch(asyncLoadUser())
+        // dispatch(asyncLoadUser())
     }, [])
 
 
