@@ -28,7 +28,7 @@ export default function Navbar() {
       <ul className="nav__links--icons">
           <Link to="/search"><MdOutlineSearch /></Link>
           <Link to="/cart"><FaCartShopping /></Link>
-          <Link to="/account"><IoIosContact /></Link>
+          <Link to="/profile"><IoIosContact /></Link>
       </ul>
     </nav>
   )
