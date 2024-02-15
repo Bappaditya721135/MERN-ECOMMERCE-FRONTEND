@@ -12,7 +12,7 @@ import AllProducts from './components/all-products/AllProducts';
 import Search from './components/search/Search';
 import UserLogin from './components/authentication/UserLogin';
 import UserRegistration from './components/authentication/UserRegistration';
-import Account from './components/account/Account';
+import Profile from "./components/account/Profile"
 
 // CREATING A ROUTER 
 const router = createBrowserRouter(createRoutesFromElements(
@@ -24,7 +24,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path="search" element={<Search />} />
     <Route path="/login" element={<UserLogin />} />
     <Route path="/register" element={<UserRegistration />} />
-    <Route path="/account" element={<Account />} />
+    <Route path="/profile" element={<Profile />} />
   </Route>
 ))
 
