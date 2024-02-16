@@ -40,13 +40,14 @@ const UserLogin = () => {
         dispatch(asyncLogin(user))
     }
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input type="email" name="email" id="email" onChange={handleInputChange} value={user.email} />
-        <input type="password" name="password" id="password" onChange={handleInputChange} value={user.password} />
-        {message && <h2>{message}</h2>}
-        <p>new here?<Link to="/register">create new account</Link></p>
-        <button>login</button>
+    <div className="form__bg">
+      <form className="form" onSubmit={handleSubmit}>
+        <h3 className="form__title">Sign In</h3>
+        {message && <span className="message">{message}</span>}
+        <input className="input__email" type="email" name="email" id="email" placeholder="enter your email" onChange={handleInputChange} value={user.email} />
+        <input className="input__password" type="password" name="password" id="password" placeholder="enter your password" onChange={handleInputChange} value={user.password} />
+        <p className="new">new here?<Link to="/register">create new account</Link></p>
+        <button className="submit__btn">login</button>
       </form>
     </div>
   )
