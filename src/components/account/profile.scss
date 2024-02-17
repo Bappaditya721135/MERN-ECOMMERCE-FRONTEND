@@ -1,0 +1,166 @@
+.profile--container {
+    background-color: rgba(0, 0, 0, 0.04);
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    @include flex;
+    font-family: "Roboto", sans-serif;
+
+    .profile__title {
+        position: absolute;
+        top: 2rem;
+        left: 50%;
+        font-size: 2rem;
+        font-weight: 400;
+        color: tomato;
+        transform: translateX(-50%);
+        padding-bottom: 5px;
+        padding-inline: 10px;
+        border-bottom: 2px solid tomato;
+    }
+
+    .profile {
+        @include flex;
+        width: 80%;
+        height: 25rem;
+        gap: 3rem;
+        // background-color: white;
+        padding: 1rem;
+    
+        &-img--section {
+            width: 50%;
+            height: 100%;
+            @include flex;
+
+            .img--container {
+                width: 18rem;
+                height: 18rem;
+                background-color: tomato;
+                border-radius: 50%;
+            }
+        }
+        &__details {
+            height: 100%;
+            font-size: 1.1rem;
+            width: 50%;
+            @include flex(space-around, flex-start);
+            flex-direction: column;
+            font-weight: 500;
+
+            .name__section {
+                .profile__name {
+                    font-size: 1.5rem;
+                    color: rgb(0, 0, 0, 0.518);
+                }
+            }
+
+            .email__section {
+                .profile__email {
+                    font-size: 1.5rem;
+                    color: rgb(0, 0, 0, 0.518);
+                }
+            }
+
+            .link__section {
+                @include flex;
+                gap: 5px;
+                flex-direction: column;
+                width: 100%;
+                a {
+                    color: white;
+                    background-color: rgb(68, 68, 68);;
+                    text-decoration: none;
+                    width: 100%;
+                    text-align: center;
+                    padding: 0.8rem 0;
+
+                    &:hover {
+                        background-color: rgb(31, 31, 31);
+                    }
+                }
+            }
+        }
+    
+    
+        .logout-edit--section {
+            position: absolute;
+            top: 85%;
+            left: 50%;
+            transform: translateX(-50%);
+            a {
+                text-decoration: none;
+                background-color: tomato;
+                &:hover {
+                    background-color: #e62e00;
+                }
+            }
+            button {
+                border: none;
+                background-color: rgba(255, 0, 0, 0.7);
+                &:hover {
+                    background-color: rgba(255, 0, 0);
+                }
+            }
+
+            a, button {
+                font-size: 1.2rem;
+                color: white;
+                padding: 10px 20px;
+                border-radius: 3px;
+                margin: 1rem;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+@include media(700px) {
+    .profile {
+        .profile-img--section {
+            .img--container {
+                width: 15rem;
+                height: 15rem;
+            }
+        }
+    }
+}
+
+@include media(580px) {
+    .profile--container {
+        .profile {
+            gap: 1rem;
+        }
+    }
+}
+
+@include media(520px) {
+    .profile--container {
+        .profile__title {
+            top: 6rem;
+        }
+        .profile {
+            flex-direction: column;
+            gap: 2rem;
+            .profile__details {
+                align-items: center;
+                gap: 2.5rem;
+                div {
+                    p {
+                        text-align: center;
+                        margin-bottom: 5px;
+                    }
+                }
+                .link__section {
+                    a {
+                        width: 20rem;
+                    }
+                }
+            }
+        }
+        .logout-edit--section {
+            @include flex;
+            width: 100%;
+        }
+    }
+}
