@@ -15,7 +15,7 @@
     border: 1px solid #4170e1;
 
     .form__title {
-        color: #4170e1;
+        color: #e62e00;
         margin-bottom: 2rem;
         font-size: 1.8rem;
         font-family: sans-serif;
@@ -56,11 +56,13 @@
         border-radius: 20rem;
         border: none;
         color: white;
-        background-color: rgba(0, 102, 192, 0.8);
+        // background-color: rgba(0, 102, 192, 0.8);
+        background-color: #e62e00;
         cursor: pointer;
 
         &:hover {
-            background-color: rgba(0, 102, 192, 1);
+            // background-color: rgba(0, 102, 192, 1);
+            background-color: tomato;
         }
     }
 }
