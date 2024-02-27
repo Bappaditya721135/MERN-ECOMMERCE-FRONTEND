@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useLocation, useParams, useSearchParams } from 'react-router-dom'
+import { Link, useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { asyncCurrentProductFetch } from '../../redux/current-product/currentProductAction';
 import ReactStars from "react-rating-stars-component"
 import { FaArrowLeft } from "react-icons/fa";
+import axios from 'axios';
+import { asyncAddToCart } from '../../redux/add to cart/addToCartAction';
 
 
 const CurrentProduct = () => {
@@ -11,6 +13,12 @@ const CurrentProduct = () => {
     const [quantity, setQuantity] = useState(1);
 
     const {loading, product: currentProduct, err}= useSelector(state => state.currentProduct);
+    const {loading: cartLoading, isAdded, error} = useSelector(state => state.addToCart);
+    const {isAuthenticated} = useSelector(state => state.user);
+
+    const navigate = useNavigate();
+    
+
     const dispatch = useDispatch();
     const {id} = useParams();
 
@@ -29,6 +37,16 @@ const CurrentProduct = () => {
             setQuantity(prev => {
                 return prev - 1;
             })
+        }
+    }
+
+    // ADDD TO CART  
+    const handleCartClick = () => {
+        if(!isAuthenticated) {
+            navigate(`/login?pathname=/product/${id}&message=log in to add to cart`)
+        }
+        else {
+            dispatch(asyncAddToCart(id, quantity))
         }
     }
 
@@ -85,7 +103,7 @@ const CurrentProduct = () => {
                                 <input type="number" name="quantity" id="quantity" onChange={onChangeHandler} value={quantity} />
                                 <button onClick={increaseQuantity}>+</button>
                             </div>
-                            <button className="btn__addToCart">add to cart</button>
+                            <button className="btn__addToCart" onClick={handleCartClick}>add to cart</button>
                         </div>
                         <p className="product__status">status: {stocks > 0 ? <span className="stocks-in">InStocks</span> : <span className="stocks-out">OutOfStocks</span>}</p>
                         <div className="product__discription-section">
