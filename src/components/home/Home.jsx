@@ -10,23 +10,14 @@ import { asyncLoadUser } from "../../redux/authentication/LoadUserAction";
 
 export default function Home() {
 
-    const state = useSelector(state => state.product);
     const dispatch = useDispatch();
 
     // GET ALL THE PRODUCTS 
     useEffect(() => {
         dispatch(asyncProductAction())
-        // dispatch(asyncLoadUser())
     }, [])
 
 
-    if(state.loading) {
-        return <h2>loading...</h2>
-    }
-
-    if(state.error) {
-        return <h2>error ocured</h2>
-    }
 
     return (
         <div className="app">
@@ -40,7 +31,8 @@ export default function Home() {
                     </button>
                 </a>
             </div>
-            {state.products && <Product products={state.products} />}
+            {/* {loading && <p>loading</p>} */}
+            {<Product />}
             <Outlet />
             <Footer />
         </div>
