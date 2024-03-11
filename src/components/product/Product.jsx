@@ -13,7 +13,7 @@ export default function Product() {
     <div id="products" className="product__section">
         <h2 className="product__section-heading">Featured Product</h2>
             {/* FOR LOADING   */}
-            {loading && <div className="U-loading"></div>}
+            {loading && <div className="U-loading U-pos-parent"></div>}
         <div className="product__container">
 
 
