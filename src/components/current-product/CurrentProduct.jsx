@@ -58,7 +58,7 @@ const CurrentProduct = () => {
     }, [])
 
     if(loading) {
-        return <h2>loading...</h2>
+        return <div className="U-loading U-pos-fixed-center"></div>
     }
 
     if(err) {
@@ -81,11 +81,6 @@ const CurrentProduct = () => {
 
         return (
             <div className="current__product--container">
-                <Link to="/" className="go-back__link">
-                    <button className="btn__go-back">
-                        <FaArrowLeft /> 
-                    </button>
-                </Link>
                 <div className="current__product">
                     <div className="product__img--container">
                         <img src={images[0].url} alt={name} />

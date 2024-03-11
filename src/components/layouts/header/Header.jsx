@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from "../Navbar/Navbar.jsx";
 import { Outlet } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { asyncProductAction } from '../../../redux/product/productAction.js';
 import { asyncLoadUser } from '../../../redux/authentication/LoadUserAction.js';
+import { toggleNav } from '../../../redux/navbar/navbarAction.js';
 
 export default function Header() {
-  const [navbar, setNavbar] = useState(false);
+  const navbar = useSelector(state => state.navbar);
   const dispatch = useDispatch()
 
 
   const handleToggleNavigation = () => {
-    setNavbar(prevState => !prevState);
+    dispatch(toggleNav())
+
   }
 
   useEffect(() => {
-    // dispatch(asyncProductAction())
     dispatch(asyncLoadUser())
   }, [])
   
