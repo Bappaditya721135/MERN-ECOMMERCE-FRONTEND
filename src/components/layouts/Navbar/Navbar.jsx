@@ -4,31 +4,36 @@ import { Link } from 'react-router-dom';
 import { MdOutlineSearch } from "react-icons/md";
 import { FaCartShopping } from "react-icons/fa6";
 import { IoIosContact } from "react-icons/io";
+import { useDispatch } from 'react-redux';
+import { toggleNav } from '../../../redux/navbar/navbarAction';
 
 
 export default function Navbar() {
-  // const [navbar, setNavbar] = useState(false);
+  const dispatch = useDispatch();
+  const toggle = () => {
+    dispatch(toggleNav())
+  }
   return (
     <nav className="navbar">
       <h3 className="nav__heading">Ecommerce</h3>
       <ul className="nav__links">
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/" onClick={toggle}>Home</Link>
         </li>
         <li>
-          <Link to="/products">Products</Link>
+          <Link to="/products" onClick={toggle}>Products</Link>
         </li>
         <li>
-          <Link to="/contact-us">Contact Us</Link>
+          <Link to="/contact-us" onClick={toggle}>Contact Us</Link>
         </li>
         <li>
-          <Link to="/about">About Us</Link>
+          <Link to="/about" onClick={toggle}>About Us</Link>
         </li>
       </ul>
       <ul className="nav__links--icons">
-          <Link to="/search"><MdOutlineSearch /></Link>
-          <Link to="/my-cart"><FaCartShopping /></Link>
-          <Link to="/profile"><IoIosContact /></Link>
+          <Link to="/search" onClick={toggle}><MdOutlineSearch /></Link>
+          <Link to="/my-cart" onClick={toggle}><FaCartShopping /></Link>
+          <Link to="/profile" onClick={toggle}><IoIosContact /></Link>
       </ul>
     </nav>
   )
