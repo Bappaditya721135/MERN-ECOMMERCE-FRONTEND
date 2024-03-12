@@ -46,3 +46,11 @@
         color: tomato;
     }
 }
+
+
+@include media(600px) {
+    .product__card {
+        max-width: 22rem;
+        width: 100%;
+    }
+}
