@@ -23,32 +23,9 @@ const CurrentProduct = () => {
     const {id} = useParams();
 
 
-    // QUANTITY 
-    const onChangeHandler = (e) => {
-        setQuantity(e.target.value);
-    }
-    const increaseQuantity = () => {
-        setQuantity(prev => {
-            return prev + 1;
-        })
-    }
-    const decreaseQuantity = () => {
-        if(quantity > 1) {
-            setQuantity(prev => {
-                return prev - 1;
-            })
-        }
-    }
+    
 
-    // ADDD TO CART  
-    const handleCartClick = () => {
-        if(!isAuthenticated) {
-            navigate(`/login?pathname=/product/${id}&message=log in to add to cart`)
-        }
-        else {
-            dispatch(asyncAddToCart(id, quantity))
-        }
-    }
+    
 
 
 
@@ -67,7 +44,44 @@ const CurrentProduct = () => {
     if(currentProduct) {
         // DESTRUCTURE ALL THE PROPERTIES 
         const {name, images, price, discription, numOfReviews, ratings, stocks} = currentProduct.product;
-        console.log(stocks)
+
+
+        // QUANTITY 
+        const onChangeHandler = (e) => {
+            setQuantity(e.target.value);
+        }
+        const increaseQuantity = () => {
+            if(quantity < stocks) {
+                setQuantity(prev => {
+                    return prev + 1;
+                })
+            }
+        }
+        const decreaseQuantity = () => {
+            if(quantity > 1) {
+                setQuantity(prev => {
+                    return prev - 1;
+                })
+            }
+        }
+
+
+        // ADDD TO CART  
+        const handleCartClick = () => {
+            if(!isAuthenticated) {
+                navigate(`/login?pathname=/product/${id}&message=log in to add to cart`)
+            }
+            else {
+                dispatch(asyncAddToCart(id, quantity))
+            }
+        }
+
+
+        // ADD REVIEW  
+        const handleReviewClick = () => {
+            // REDIRECT TO UNDER DEVELOPMENT COMPONENT  
+            navigate(`/under-development?pathname=/product/${id}`)
+        }
 
         // OPTIONS FOR REACT RATING STARS 
         const options = {
@@ -98,14 +112,14 @@ const CurrentProduct = () => {
                                 <input type="number" name="quantity" id="quantity" onChange={onChangeHandler} value={quantity} />
                                 <button onClick={increaseQuantity}>+</button>
                             </div>
-                            <button className="btn__addToCart" onClick={handleCartClick}>add to cart</button>
+                            <button className="btn__addToCart" onClick={handleCartClick}>{cartLoading ? "adding..." : "add to cart"}</button>
                         </div>
                         <p className="product__status">status: {stocks > 0 ? <span className="stocks-in">InStocks</span> : <span className="stocks-out">OutOfStocks</span>}</p>
                         <div className="product__discription-section">
                             <span className="discription__title">Discription</span>
                             <p className="product__discription">{discription}</p>
                         </div>
-                        <button className="btn__add-review">add review</button>
+                        <button className="btn__add-review" onClick={handleReviewClick}>add review</button>
                     </div>
                 </div>
             </div>

@@ -6,7 +6,8 @@ import { useDispatch } from 'react-redux';
 import { getMyCart } from '../../../redux/my cart/myCartAction';
 
 function CartItemCard({product, quantity}) {
-  console.log(product._id);
+  console.log("product")
+  console.log(product);
   const dispatch = useDispatch()
 
   const handleDeleteClick = () => {
