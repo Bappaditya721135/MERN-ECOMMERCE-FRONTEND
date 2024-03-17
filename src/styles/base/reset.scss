@@ -9,7 +9,7 @@
 html {
     font-size: 100%;
 
-    @include media(900px) {
+    @include media(940px) {
         font-size: 80%;
     }
 

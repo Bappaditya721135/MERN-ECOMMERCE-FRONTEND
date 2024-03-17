@@ -17,6 +17,7 @@ import MyCart from './components/cart/MyCart';
 
 // SCSS 
 import "../src/styles/styles.scss";
+import UnderDevComponent from './components/under-development/UnderDevComponent';
 
 // CREATING A ROUTER 
 const router = createBrowserRouter(createRoutesFromElements(
@@ -33,6 +34,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/change-password" element={<ChangePassword />} />
     <Route path="/edit-profile" element={<EditProfile />} />
     <Route path="/my-cart" element={<MyCart />} />
+    <Route path="/under-development" element={<UnderDevComponent />} />
   </Route>
 ))
 
