@@ -9,8 +9,8 @@ const AllProducts = () => {
 
 
     useEffect(() => {
-        const url = `/api/v1/product${location.search}`
-        dispatch(asyncProductAction(url))
+        // const url = `/api/v1/product${location.search}`
+        dispatch(asyncProductAction())
     }, [])
 
     
