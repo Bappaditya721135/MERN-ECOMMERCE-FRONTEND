@@ -12,7 +12,9 @@ export const getMyCart = () => {
         dispatch({type: MY_CART_FETCH})
         console.log("1")
 
-        axios.get(vercelHost).then(res => {
+        axios.get(vercelHost, {
+            withCredentials: true,
+        }).then(res => {
             console.log("2")
             dispatch({type: MY_CART_FETCH_SUCCESS, payLoad: res.data.cart})
         }).catch(err => {
