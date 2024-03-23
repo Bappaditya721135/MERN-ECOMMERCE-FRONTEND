@@ -10,6 +10,7 @@ export const asyncLogin = (user) => {
     return (dispatch) => {
         dispatch({type: LOGIN_FETCH})
         axios.post(vercelHost, JSON.stringify(user), {
+            withCredentials: true,
             headers: {
                 "Content-Type": "application/json",
             }
