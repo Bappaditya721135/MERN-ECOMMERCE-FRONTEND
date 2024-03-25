@@ -10,7 +10,6 @@ const vercelHost = "https://mern-ecommerce-backend-khaki.vercel.app/api/v1/my-ca
 export const getMyCart = () => {
     return (dispatch) => {
         dispatch({type: MY_CART_FETCH})
-        console.log("1")
 
         axios.get(vercelHost, {
             withCredentials: true,
