@@ -14,10 +14,8 @@ export const getMyCart = () => {
         axios.get("/api/v1/my-cart", {
             withCredentials: true,
         }).then(res => {
-            console.log("2")
             dispatch({type: MY_CART_FETCH_SUCCESS, payLoad: res.data.cart})
         }).catch(err => {
-            console.log(3)
             dispatch({type: MY_CART_FETCH_ERROR, payLoad: err})
         })
     }
