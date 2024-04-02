@@ -26,8 +26,8 @@ const productFetchError = (error) => {
     }
 }
 
-const vercelHost = "https://mern-ecommerce-backend-khaki.vercel.app/api/v1/product"
-const renderHost = "https://mern-ecommerce-backend-0698.onrender.com/api/v1/product"
+// const vercelHost = "https://mern-ecommerce-backend-khaki.vercel.app/api/v1/product"
+// const renderHost = "https://mern-ecommerce-backend-0698.onrender.com/api/v1/product"
 
 // ASYNC ACTION CREATOR 
 export const asyncProductAction = () => {

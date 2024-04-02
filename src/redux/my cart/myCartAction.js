@@ -5,7 +5,7 @@ export const MY_CART_FETCH_SUCCESS = "MY_CART_FETCH_SUCCESS";
 export const MY_CART_FETCH_ERROR = "MY_CART_FETCH_ERROR";
 
 
-const vercelHost = "https://mern-ecommerce-backend-khaki.vercel.app/api/v1/my-cart"
+// const vercelHost = "https://mern-ecommerce-backend-khaki.vercel.app/api/v1/my-cart"
 
 export const getMyCart = () => {
     return (dispatch) => {

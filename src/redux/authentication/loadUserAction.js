@@ -5,7 +5,7 @@ export const LOAD_USER_SUCCESS = "LOAD_USER_SUCCESS";
 export const LOAD_USER_ERROR = "LOAD_USER_ERROR";
 
 
-const vercelHost = "https://mern-ecommerce-backend-khaki.vercel.app/api/v1/user/me"
+// const vercelHost = "https://mern-ecommerce-backend-khaki.vercel.app/api/v1/user/me"
 export const asyncLoadUser = () => {
     return (dispatch) => {
         dispatch({type: LOAD_USER})

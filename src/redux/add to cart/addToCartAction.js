@@ -6,7 +6,7 @@ export const ADD_CART_FETCH_SUCCESS = "ADD_CART_FETCH_SUCCESS";
 export const ADD_CART_FETCH_ERROR = "ADD_CART_FETCH_ERROR";
 
 
-const vercelHost = "https://mern-ecommerce-backend-khaki.vercel.app/api/v1/product/add-to-cart"
+// const vercelHost = "https://mern-ecommerce-backend-khaki.vercel.app/api/v1/product/add-to-cart"
 
 
 export const asyncAddToCart = (id, quantity) => {
