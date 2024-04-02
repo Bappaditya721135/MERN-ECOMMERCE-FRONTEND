@@ -33,7 +33,7 @@ const renderHost = "https://mern-ecommerce-backend-0698.onrender.com/api/v1/prod
 export const asyncProductAction = () => {
     return (dispatch) => {
         dispatch(productFetch());
-        axios.get(vercelHost).then(res => {
+        axios.get("/api/v1/product").then(res => {
             dispatch(productFetchSuccess(res.data.products))
         }).catch(err => {
             dispatch(productFetchError(err))

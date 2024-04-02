@@ -13,7 +13,7 @@ export const asyncAddToCart = (id, quantity) => {
     console.log(id, quantity)
     return (dispatch) => {
         dispatch({type: ADD_CART_FETCH});
-        axios.post(vercelHost, {id, quantity},
+        axios.post("/api/v1/product/add-to-cart", {id, quantity},
         {
             headers: {
                 "Content-Type": "application/json"

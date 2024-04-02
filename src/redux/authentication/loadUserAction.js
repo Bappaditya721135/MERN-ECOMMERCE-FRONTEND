@@ -9,7 +9,7 @@ const vercelHost = "https://mern-ecommerce-backend-khaki.vercel.app/api/v1/user/
 export const asyncLoadUser = () => {
     return (dispatch) => {
         dispatch({type: LOAD_USER})
-        axios.get(vercelHost).then(res => {
+        axios.get("/api/v1/user/me").then(res => {
             console.log("load res")
             console.log(res)
             dispatch({type: LOAD_USER_SUCCESS, payLoad: res.data.user})

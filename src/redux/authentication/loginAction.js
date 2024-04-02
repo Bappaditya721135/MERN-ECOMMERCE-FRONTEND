@@ -9,7 +9,7 @@ const vercelHost = "https://mern-ecommerce-backend-khaki.vercel.app/api/v1/login
 export const asyncLogin = (user) => {
     return (dispatch) => {
         dispatch({type: LOGIN_FETCH})
-        axios.post(vercelHost, JSON.stringify(user), {
+        axios.post("/api/v1/login", JSON.stringify(user), {
             withCredentials: true,
             headers: {
                 "Content-Type": "application/json",

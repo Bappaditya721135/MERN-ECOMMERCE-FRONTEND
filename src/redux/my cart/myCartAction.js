@@ -11,7 +11,7 @@ export const getMyCart = () => {
     return (dispatch) => {
         dispatch({type: MY_CART_FETCH})
 
-        axios.get(vercelHost, {
+        axios.get("/api/v1/my-cart", {
             withCredentials: true,
         }).then(res => {
             console.log("2")
