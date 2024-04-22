@@ -10,7 +10,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api": url
+      "/api":localUrl
     }
   }
 })
