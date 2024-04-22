@@ -8,7 +8,7 @@ export const REGISTER_FETCH_ERROR = "REGISTER_FETCH_ERROR";
 export const asyncRegister = (user) => {
     return (dispatch) => {
         dispatch({type: REGISTER_FETCH})
-        axios.post("https://mern-ecommerce-backend-khaki.vercel.app//api/v1/register",
+        axios.post("/api/v1/register",
         JSON.stringify(user),
         {
             headers: {
