@@ -14,10 +14,12 @@ import MyOrder from './components/orders/MyOrder';
 import ChangePassword from './components/password/ChangePassword';
 import EditProfile from './components/account/EditProfile';
 import MyCart from './components/cart/MyCart';
+import ForgotPassword from './components/authentication/ForgotPassword';
 
 // SCSS 
 import "../src/styles/styles.scss";
 import UnderDevComponent from './components/under-development/UnderDevComponent';
+import ResetPassword from './components/authentication/ResetPassword';
 
 // CREATING A ROUTER 
 const router = createBrowserRouter(createRoutesFromElements(
@@ -29,6 +31,8 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path="search" element={<Search />} />
     <Route path="/login" element={<UserLogin />} />
     <Route path="/register" element={<UserRegistration />} />
+    <Route path="/forgot-password" element={<ForgotPassword />} />
+    <Route path="/reset-password" element={<ResetPassword />} />
     <Route path="/profile" element={<Profile />} />
     <Route path="/orders" element={<MyOrder />} />
     <Route path="/change-password" element={<ChangePassword />} />
