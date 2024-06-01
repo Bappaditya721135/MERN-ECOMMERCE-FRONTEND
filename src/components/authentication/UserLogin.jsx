@@ -43,6 +43,7 @@ const UserLogin = () => {
         e.preventDefault();
         dispatch(asyncLogin(user))
     }
+
   return (
     <div className="form__bg">
       <form className="form" onSubmit={handleSubmit}>
@@ -50,6 +51,7 @@ const UserLogin = () => {
         {message && <span className="message">{message}</span>}
         <input className="input__email" type="email" name="email" id="email" placeholder="enter your email" onChange={handleInputChange} value={user.email} />
         <input className="input__password" type="password" name="password" id="password" placeholder="enter your password" onChange={handleInputChange} value={user.password} />
+        <Link className="forgot-password" to="/forgot-password">forgot password</Link>
         <p className="new">new here?<Link to="/register">create new account</Link></p>
         <button className="submit__btn">login</button>
       </form>
