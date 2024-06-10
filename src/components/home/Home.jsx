@@ -5,12 +5,14 @@ import Product from "../product/Product";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { asyncProductAction } from "../../redux/product/productAction";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { asyncLoadUser } from "../../redux/authentication/LoadUserAction";
+import { toast, Toaster } from "sonner";
 
 export default function Home() {
 
     const dispatch = useDispatch();
+    
 
     // GET ALL THE PRODUCTS 
     useEffect(() => {
@@ -35,6 +37,7 @@ export default function Home() {
             {<Product />}
             <Outlet />
             <Footer />
+            <Toaster richColors position="top-center" expand={true} visibleToasts={1} toastOptions={{style: {padding: "10px", fontSize: "1.3rem"}}} />
         </div>
     )
 }
