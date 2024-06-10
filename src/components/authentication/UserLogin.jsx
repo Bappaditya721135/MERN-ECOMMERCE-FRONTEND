@@ -3,10 +3,11 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { asyncLogin } from '../../redux/authentication/loginAction'
 import {  useNavigate, useSearchParams, Link } from 'react-router-dom'
+import { toast, Toaster } from 'sonner'
 
 
 const UserLogin = () => {
-  const {isAuthenticated} = useSelector(state => state.user);
+  const {isAuthenticated, error} = useSelector(state => state.user);
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate()
   const message = searchParams.get("message")
@@ -26,9 +27,16 @@ const UserLogin = () => {
     // CHECK IF ISAUTHENTICATED IS TRUE 
     useEffect(() => {
       if(isAuthenticated) {
-        navigate(path);
+        toast.success("login successfull");
+        setTimeout(() => {
+          navigate(path);
+        }, 1000);
       }
-    }, [isAuthenticated])
+      
+      if(error) {
+        toast.error(error.data.message)
+      }
+    }, [isAuthenticated, error])
 
     const handleInputChange = (e) => {
         setUser(prev => {
@@ -55,6 +63,7 @@ const UserLogin = () => {
         <p className="new">new here?<Link to="/register">create new account</Link></p>
         <button className="submit__btn">login</button>
       </form>
+      <Toaster richColors position="bottom-center" expand={true} visibleToasts={1} toastOptions={{style: {padding: "10px", fontSize: "1.3rem"}}} />
     </div>
   )
 }

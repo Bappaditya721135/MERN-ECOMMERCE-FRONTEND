@@ -23,8 +23,6 @@ export const authenticationReducer = (state=initialState, action) => {
         case LOGIN_FETCH_SUCCESS:
         case REGISTER_FETCH_SUCCESS:
         case LOAD_USER_SUCCESS:
-            console.log("load reducer")
-            console.log(action)
             return {
                 loading: false,
                 isAuthenticated: true,

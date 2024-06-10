@@ -15,12 +15,9 @@ export const asyncRegister = (user) => {
                 "Content-Type": "application/json"
             }
         }).then(res => {
-            console.log("res")
-            console.log(res)
             dispatch({type: REGISTER_FETCH_SUCCESS, payLoad: res.data.user})
         }).catch(err => {
-            console.log(err)
-            dispatch({type: REGISTER_FETCH_ERROR, payLoad: err})
+            dispatch({type: REGISTER_FETCH_ERROR, payLoad: err.response})
         })
     }
 }

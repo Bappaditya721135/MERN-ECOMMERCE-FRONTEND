@@ -17,7 +17,7 @@ export const asyncLogin = (user) => {
         }).then(res => {
             dispatch({type: LOGIN_FETCH_SUCCESS, payLoad: res.data.user})
         }).catch(err => {
-            dispatch({type: LOGIN_FETCH_ERROR, payLoad: err})
+            dispatch({type: LOGIN_FETCH_ERROR, payLoad: err.response})
         })
     }
 }
